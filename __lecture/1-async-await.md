@@ -1,4 +1,4 @@
-# 3.6.1 - Async / Await
+# 3.7.1 - Async / Await
 
 ---
 
@@ -26,7 +26,17 @@ newPauseFunction(1)
 ```
 
 _let's convert it to async/await_
+```js
+const doIt = async () => {
+    await newPauseFunction(1);
+    await newPauseFunction(2);
+    await newPauseFunction(3);
+    await newPauseFunction(3);
+    console.log("no more 'awaits'");
+}
 
+doIt();
+```
 ---
 
 ### Exercise
@@ -45,7 +55,21 @@ transformText(string)
     })
     .catch((err) => console.log(err));
 ```
-
+```js
+const transformText = async () => { //I had put const doIt = async
+    try {
+    let str = await allCaps("hello");
+    str = await trimFirst(str);
+    str = await trimLast(str);
+    str = await replaceWithX(str);
+    console.log(str); 
+    }
+    catch (err) {
+        console.log("nope!");
+    }
+}
+//try catch was a bonus, victory achieved
+```
 ---
 
 ## Error Handling

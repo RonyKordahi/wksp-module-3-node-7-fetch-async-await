@@ -31,13 +31,13 @@ fetch('<URL>')
 ### `POST
 
 ```js
-fetch('<URL>'{
+fetch('<URL>', {
         method: 'POST', // (optional) for `GET`
         mode: '',       // (optional) no-cors, *cors, same-origin
         cache: '',      // (optional) no-cache, reload, force-cache, only-if-cached
         credentials: '',// (optional) include, *same-origin, omit
         headers: {
-            'Content-Type': 'application/json' // (optional) but we'll use it.
+            'Content-Type': 'application/json' // (optional) but we'll use it. (worth using 100% of the time)
             // (optional) other options / parameters that can be set here.
             },
         body: JSON.stringify({ // good practice to stringify, even if not always required.
