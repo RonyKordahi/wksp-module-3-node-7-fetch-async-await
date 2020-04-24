@@ -6,7 +6,21 @@ const request = require('request-promise');
 
 // Returns the current position of the ISS
 const getIssPosition = async () => {
-    // add code here (include a try/catch as well)
+    return request ("http://api.open-notify.org/iss-now.json")
+        .then(JSON.parse)
+        .then(data => {
+            return {lat: data.iss_position.latitude, lng: data.iss_position.longitude}
+        })
 }
 
-getIssPosition();
+const doIt = async () => {
+    try {
+        const position = await getIssPosition();
+        console.log(position);
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+doIt();
